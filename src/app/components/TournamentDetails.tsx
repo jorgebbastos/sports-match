@@ -30,7 +30,7 @@ export default function TournamentDetails() {
     </button>
     <div className="bg-white rounded-md p-8 text-center">
      <Trophy className="w-16 h-16 text-gray-300 mx-auto mb-3" />
-     <h1 className="text-xl font-bold text-gray-900 mb-2">Torneio n?o encontrado</h1>
+     <h1 className="text-xl font-bold text-gray-900 mb-2">Torneio não encontrado</h1>
      <p className="text-gray-600 mb-4">Volte para a lista e escolha outro torneio.</p>
      <button
       onClick={() => navigate("/tournaments")}
@@ -93,7 +93,7 @@ export default function TournamentDetails() {
      </h3>
      <div className="space-y-3 text-sm text-gray-700">
       <p><span className="font-semibold text-gray-900">Organizador:</span> {tournament.organizer}</p>
-      <p><span className="font-semibold text-gray-900">N?vel:</span> {tournament.level}</p>
+      <p><span className="font-semibold text-gray-900">Nível:</span> {tournament.level}</p>
       <p><span className="font-semibold text-gray-900">Formato:</span> {tournament.format}</p>
      </div>
     </section>
@@ -111,7 +111,7 @@ export default function TournamentDetails() {
     </section>
 
     <section className="bg-white rounded-md p-5">
-     <h3 className="font-semibold text-gray-900 mb-3">Regras e benef?cios</h3>
+     <h3 className="font-semibold text-gray-900 mb-3">Regras e benefícios</h3>
      <div className="space-y-4">
       <Checklist items={tournament.rules} />
       <div className="border-t border-gray-100 pt-4">

@@ -49,7 +49,7 @@ const mockMatches: MatchEvent[] = [
  },
  {
   id: 4,
-  sport: 'Tênis',
+  sport: 'Basquete',
   opponent: 'Carlos Silva',
   date: '2026-05-10',
   time: '18:00',
@@ -59,7 +59,7 @@ const mockMatches: MatchEvent[] = [
  },
  {
   id: 5,
-  sport: 'Basquete',
+  sport: 'Tênis',
   opponent: 'Lucas Oliveira',
   date: '2026-05-09',
   time: '20:00',

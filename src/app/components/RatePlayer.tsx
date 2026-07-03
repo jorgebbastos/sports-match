@@ -9,7 +9,7 @@ export default function RatePlayer() {
  const [hoveredRating, setHoveredRating] = useState(0);
  const [comment, setComment] = useState('');
 
- const opponent = 'Marina Costa';
+ const opponent = 'Lucas Oliveira';
 
  const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();

@@ -11,7 +11,7 @@ export default function MatchResult() {
 
  const match = {
   sport: 'Tênis',
-  opponent: 'Marina Costa',
+  opponent: 'Lucas Oliveira',
   date: '15/05/2026',
   time: '19:00'
  };

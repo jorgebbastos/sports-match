@@ -184,11 +184,13 @@ export default function CreateMatch() {
  const [time, setTime] = useState("");
  const [mode, setMode] = useState<"casual" | "competitive">("casual");
  const [selectedArenaId, setSelectedArenaId] = useState(PARTNER_ARENAS[0].id);
+ const [location, setLocation] = useState("");
  const [selectedOpponentGroupId, setSelectedOpponentGroupId] = useState(mockOpponentGroups[0].id);
  const [showModal, setShowModal] = useState(false);
 
  const selectedArena = PARTNER_ARENAS.find(a => a.id === selectedArenaId) ?? PARTNER_ARENAS[0];
  const selectedOpponentGroup = mockOpponentGroups.find(g => g.id === selectedOpponentGroupId) ?? mockOpponentGroups[0];
+ const finalLocation = location.trim() !== "" ? location: selectedArena.name;
 
  const opponentName = isGroupVsGroup
   ? selectedOpponentGroup.name
@@ -254,27 +256,97 @@ export default function CreateMatch() {
       </div>
      </div>
 
-     {/* Arena Parceira */}
-     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">Arena Parceira</label>
-      <div className="space-y-2">
-       {PARTNER_ARENAS.map((arena) => (
-        <button key={arena.id} type="button" onClick={() => setSelectedArenaId(arena.id)}
-         className={`w-full p-3 rounded-md border-2 text-left transition-colors ${selectedArenaId === arena.id ? "border-[#12d875] bg-[#12d875]/5" : "border-gray-200 hover:border-gray-300"}`}>
-         <div className="flex items-start gap-3">
-          <MapPin size={16} className={`mt-0.5 flex-shrink-0 ${selectedArenaId === arena.id ? "text-[#12d875]" : "text-gray-400"}`} />
-          <div>
-           <p className={`font-medium text-sm ${selectedArenaId === arena.id ? "text-[#12d875]" : "text-gray-800"}`}>{arena.name}</p>
-           <p className="text-xs text-gray-500">{arena.address}</p>
+     {/* Local */}
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Local
+  </label>
+
+  <div className="relative mb-5">
+    <MapPin
+      size={20}
+      className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+    />
+
+    <input
+      type="text"
+      value={location}
+      onChange={(e) => setLocation(e.target.value)}
+      placeholder="Digite qualquer local ou selecione uma arena abaixo"
+      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#12d875] focus:border-transparent"
+    />
+  </div>
+
+  <div className="flex items-center gap-3 mb-4">
+    <div className="flex-1 h-px bg-gray-200"></div>
+
+    <span className="text-xs uppercase tracking-wide text-gray-400">
+      Arenas Parceiras
+    </span>
+
+    <div className="flex-1 h-px bg-gray-200"></div>
+  </div>
+
+  <div className="space-y-2">
+
+    {PARTNER_ARENAS.map((arena) => (
+
+      <button
+        key={arena.id}
+        type="button"
+        onClick={() => {
+          setSelectedArenaId(arena.id);
+          setLocation(arena.name);
+        }}
+        className={`w-full p-3 rounded-md border-2 transition-all text-left ${
+          selectedArenaId === arena.id
+            ? "border-[#12d875] bg-[#12d875]/5"
+            : "border-gray-200 hover:border-[#12d875]/50"
+        }`}
+      >
+
+        <div className="flex items-start gap-3">
+
+          <MapPin
+            size={17}
+            className={`mt-0.5 ${
+              selectedArenaId === arena.id
+                ? "text-[#12d875]"
+                : "text-gray-400"
+            }`}
+          />
+
+          <div className="flex-1">
+
+            <p
+              className={`font-semibold ${
+                selectedArenaId === arena.id
+                  ? "text-[#12d875]"
+                  : "text-gray-900"
+              }`}
+            >
+              {arena.name}
+            </p>
+
+            <p className="text-xs text-gray-500">
+              {arena.address}
+            </p>
+
           </div>
-          <div className="ml-auto flex items-center gap-1 text-xs text-gray-500 flex-shrink-0">
-           <Phone size={11} />
-          </div>
-         </div>
-        </button>
-       ))}
-      </div>
-     </div>
+
+          <Phone
+            size={14}
+            className="text-gray-400"
+          />
+
+        </div>
+
+      </button>
+
+    ))}
+
+  </div>
+</div>
 
      {/* Modo de Jogo */}
      <div>

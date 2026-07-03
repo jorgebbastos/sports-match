@@ -29,9 +29,9 @@ export default function Tournaments() {
  const [selectedLocation, setSelectedLocation] = useState<string>("all");
  const [registeredIds, setRegisteredIds] = useState<number[]>(() => readRegisteredTournamentIds());
 
- const sports = ["Todos", "T?nis", "Futebol", "V?lei", "Basquete", "Corrida"];
- const levels = ["Todos os n?veis", "Iniciante", "Intermedi?rio", "Avan?ado"];
- const locations = ["Todas as cidades", "S?o Paulo", "Santos", "Belo Horizonte"];
+ const sports = ["Todos", "Tênis", "Futebol", "Vôlei", "Basquete", "Corrida"];
+ const levels = ["Todos os níveis", "Iniciante", "Intermediário", "Avançado"];
+ const locations = ["Todas as cidades", "São Paulo", "Santos", "Belo Horizonte"];
 
  const registerTournament = (tournamentId: number) => {
   if (registeredIds.includes(tournamentId)) return;
@@ -53,7 +53,7 @@ export default function Tournaments() {
   if (selectedSport !== "all" && selectedSport !== "Todos" && tournament.sport !== selectedSport) return false;
   if (
    selectedLevel !== "all" &&
-   selectedLevel !== "Todos os n?veis" &&
+   selectedLevel !== "Todos os níveis" &&
    !tournament.level.includes(selectedLevel)
   ) {
    return false;
@@ -70,7 +70,7 @@ export default function Tournaments() {
 
  const activeFiltersCount = [
   selectedSport !== "all" && selectedSport !== "Todos",
-  selectedLevel !== "all" && selectedLevel !== "Todos os n?veis",
+  selectedLevel !== "all" && selectedLevel !== "Todos os níveis",
   selectedLocation !== "all" && selectedLocation !== "Todas as cidades",
  ].filter(Boolean).length;
 
@@ -131,7 +131,7 @@ export default function Tournaments() {
      </div>
      <div className="flex items-center gap-2">
       <Clock size={16} />
-      N?vel: {tournament.level}
+      Nível: {tournament.level}
      </div>
     </div>
 
@@ -189,7 +189,7 @@ export default function Tournaments() {
         activeTab === "tournaments" ? "bg-gray-100 text-gray-900" : "bg-transparent text-gray-600"
        }`}
       >
-       Dispon?veis
+       Disponíveis
       </button>
       <button
        onClick={() => setActiveTab("mytournaments")}
@@ -226,7 +226,7 @@ export default function Tournaments() {
      <div className="bg-gray-50 border-b border-gray-200">
       <div className="max-w-2xl mx-auto px-6 py-4">
        <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold text-gray-900">Filtros avan?ados</h3>
+        <h3 className="font-semibold text-gray-900">Filtros avançados</h3>
         {activeFiltersCount > 0 && (
          <button onClick={clearFilters} className="text-sm text-[#12d875] font-medium hover:underline">
           Limpar tudo
@@ -242,10 +242,10 @@ export default function Tournaments() {
          onSelect={(sport) => setSelectedSport(sport === "Todos" ? "all" : sport)}
         />
         <FilterGroup
-         label="N?vel"
+         label="Nível"
          options={levels}
-         selected={selectedLevel === "all" ? "Todos os n?veis" : selectedLevel}
-         onSelect={(level) => setSelectedLevel(level === "Todos os n?veis" ? "all" : level)}
+         selected={selectedLevel === "all" ? "Todos os níveis" : selectedLevel}
+         onSelect={(level) => setSelectedLevel(level === "Todos os níveis" ? "all" : level)}
         />
         <FilterGroup
          label="Localização"
@@ -273,7 +273,7 @@ export default function Tournaments() {
         title={filter === "registered" ? "Nenhum torneio inscrito" : "Nenhum torneio encontrado"}
         description={
          filter === "registered"
-          ? "Quando voc? se inscrever, o torneio aparece aqui."
+          ? "Quando você se inscrever, o torneio aparece aqui."
           : "Tente ajustar os filtros para ver mais torneios."
         }
         actionLabel={filter === "registered" ? "Ver torneios abertos" : "Limpar filtros"}
@@ -291,7 +291,7 @@ export default function Tournaments() {
       {registeredTournaments.length === 0 ? (
        <EmptyTournaments
         title="Nenhum torneio inscrito"
-        description="Inscreva-se em torneios para come?ar a competir."
+        description="Inscreva-se em torneios para começar a competir."
         actionLabel="Explorar Torneios"
         onAction={() => setActiveTab("tournaments")}
        />
@@ -307,8 +307,8 @@ export default function Tournaments() {
        <div className="grid grid-cols-3 gap-3">
         {[
          { label: "Inscrições", value: registeredTournaments.length },
-         { label: "P?dios", value: 0 },
-         { label: "T?tulos", value: 0 },
+         { label: "Pódios", value: 0 },
+         { label: "Títulos", value: 0 },
         ].map((stat) => (
          <div key={stat.label} className="bg-gray-50 rounded-md p-3 text-center">
           <p className="text-xl font-bold text-gray-900">{stat.value}</p>
@@ -326,7 +326,7 @@ export default function Tournaments() {
       <h3 className="font-semibold text-lg">Competidor Premium</h3>
      </div>
      <p className="text-sm text-white/80 mb-4">
-      Acesso priorit?rio a torneios exclusivos, m?tricas detalhadas e ranking competitivo completo.
+      Acesso prioritário a torneios exclusivos, métricas detalhadas e ranking competitivo completo.
      </p>
      <button
       onClick={() => navigate("/premium")}

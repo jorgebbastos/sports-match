@@ -121,7 +121,7 @@ export default function MatchDetails() {
     {!isCompetitive && (
      <div className="bg-green-50 border border-green-200 rounded-md p-4 mb-6">
       <p className="text-sm text-green-800">
-       <strong>Partida Casual:</strong> Esta foi uma partida descontraída. Resultados de partidas casuais não afetam seu ranking.
+       <strong>Partida casual:</strong> Esta foi uma partida descontraida entre os jogadores.
       </p>
      </div>
     )}

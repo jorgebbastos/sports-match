@@ -101,7 +101,7 @@ export default function MatchResult() {
        <strong>Importante:</strong> O resultado será enviado para {match.opponent} confirmar.
       </p>
       <p className="text-xs text-gray-600">
-       Após a confirmação, o resultado será contabilizado no ranking.
+       Apos a confirmacao, o resultado ficara registrado na partida.
       </p>
      </div>
 

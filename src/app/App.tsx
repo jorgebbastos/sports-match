@@ -7,26 +7,17 @@ import SwipeScreen from './components/SwipeScreen';
 import Matches from './components/Matches';
 import Chat from './components/Chat';
 import CreateMatch from './components/CreateMatch';
-import CreateGroup from './components/CreateGroup';
 import CreateGame from './components/CreateGame';
-import MyGroups from './components/MyGroups';
 import MyGames from './components/MyGames';
 import Agenda from './components/Agenda';
-import Rankings from './components/Rankings';
 import Profile from './components/Profile';
 import UserProfile from './components/UserProfile';
 import MatchResult from './components/MatchResult';
 import RatePlayer from './components/RatePlayer';
-import Tournaments from './components/Tournaments';
-import TournamentDetails from './components/TournamentDetails';
-import PremiumPlan from './components/PremiumPlan';
 import Notifications from './components/Notifications';
 import RescheduleMatch from './components/RescheduleMatch';
 import CancelMatch from './components/CancelMatch';
 import MatchDetails from './components/MatchDetails';
-import PlayerHistory from './components/PlayerHistory';
-import Gamification from './components/Gamification';
-import Awards from './components/Awards';
 import Navigation from './components/Navigation';
 
 export type UserType = 'player' | 'arena';
@@ -112,26 +103,17 @@ export default function App() {
       <Route path="/matches" element={<Matches />} />
       <Route path="/chat/:matchId" element={<Chat />} />
       <Route path="/create-match" element={<CreateMatch />} />
-      <Route path="/create-group" element={<CreateGroup />} />
       <Route path="/create-game" element={<CreateGame />} />
-      <Route path="/my-groups" element={<MyGroups />} />
       <Route path="/my-games" element={<MyGames />} />
       <Route path="/agenda" element={<Agenda />} />
-      <Route path="/rankings" element={<Rankings />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/user/:userId" element={<UserProfile />} />
       <Route path="/match-result/:matchId" element={<MatchResult />} />
       <Route path="/rate-player/:matchId" element={<RatePlayer />} />
-      <Route path="/tournaments" element={<Tournaments />} />
-      <Route path="/tournaments/:tournamentId" element={<TournamentDetails />} />
-      <Route path="/premium" element={<PremiumPlan />} />
       <Route path="/notifications" element={<Notifications />} />
       <Route path="/reschedule-match" element={<RescheduleMatch />} />
       <Route path="/cancel-match" element={<CancelMatch />} />
       <Route path="/match-details" element={<MatchDetails />} />
-      <Route path="/player-history" element={<PlayerHistory />} />
-      <Route path="/gamification" element={<Gamification />} />
-      <Route path="/awards" element={<Awards />} />
       <Route path="/" element={<Navigate to="/login" replace />} />
      </Routes>
      <Navigation />

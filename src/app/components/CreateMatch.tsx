@@ -362,7 +362,7 @@ export default function CreateMatch() {
         className={`p-4 rounded-md border-2 transition-colors ${mode === "competitive" ? "border-[#12d875] bg-[#12d875]/10 text-[#12d875]" : "border-gray-300 text-gray-700 hover:border-gray-400"}`}>
         <div className="text-2xl mb-1"></div>
         <div className="font-semibold">Competitivo</div>
-        <div className="text-xs opacity-70">Ranking contabilizado</div>
+        <div className="text-xs opacity-70">Resultado registrado</div>
        </button>
       </div>
      </div>

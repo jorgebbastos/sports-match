@@ -149,7 +149,6 @@ export default function Chat() {
     {!isGroup && !isGame && (
      <>
       <button
-       onClick={() => navigate(`/player-history?matchId=${matchId}&playerName=${individualName}`)}
        className="p-2 hover:bg-gray-100 rounded-full"
        title="Ver histórico de partidas"
       >

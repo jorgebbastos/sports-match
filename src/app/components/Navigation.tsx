@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router';
-import { Search, MessageCircle, Calendar, Trophy, User, Users, Building2 } from 'lucide-react';
+import { Search, MessageCircle, Calendar, User, Building2 } from 'lucide-react';
 import { useUserType } from '../App';
 
 export default function Navigation() {
@@ -11,13 +11,11 @@ export default function Navigation() {
   { path: '/swipe', icon: Search, label: 'Explorar' },
   { path: '/matches', icon: MessageCircle, label: 'Conversas' },
   { path: '/agenda', icon: Calendar, label: 'Agenda' },
-  { path: '/tournaments', icon: Trophy, label: 'Torneios' },
   { path: '/profile', icon: User, label: 'Perfil' },
  ];
 
  const arenaNavItems = [
   { path: '/my-games', icon: Calendar, label: 'Meus jogos' },
-  { path: '/my-groups', icon: Users, label: 'Grupos' },
   { path: '/agenda', icon: Calendar, label: 'Agenda' },
   { path: '/profile', icon: Building2, label: 'Perfil' },
  ];
@@ -25,10 +23,8 @@ export default function Navigation() {
  const navItems = userType === 'arena' ? arenaNavItems : playerNavItems;
  const accentColor = userType === 'arena' ? '#12d875' : '#12d875';
 
- const hideNavPaths = ['/login', '/signup', '/profile-setup', '/chat', '/create-match', '/create-group', '/create-game', '/user', '/match-result', '/rate-player', '/notifications', '/awards', '/gamification', '/premium', '/reschedule-match', '/cancel-match', '/match-details', '/player-history'];
- const shouldHide =
-  hideNavPaths.some(path => location.pathname.startsWith(path)) ||
-  /^\/tournaments\/[^/]+$/.test(location.pathname);
+ const hideNavPaths = ['/login', '/signup', '/profile-setup', '/chat', '/create-match', '/create-game', '/user', '/match-result', '/rate-player', '/notifications', '/reschedule-match', '/cancel-match', '/match-details'];
+ const shouldHide = hideNavPaths.some(path => location.pathname.startsWith(path));
 
  if (shouldHide) return null;
 
